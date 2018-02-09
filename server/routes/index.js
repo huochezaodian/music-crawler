@@ -10,25 +10,33 @@ router.get('/', async (ctx, next) => {
 
 router.get('/hotmusic', async (ctx, next) => {
   const params = ctx.query;
-  await  crawl.initTotalList(params);
+  await  Crawl.initTotalList(params);
   ctx.body = {
-    data: crawl.musicList
+    data: Crawl.musicList
   }
 })
 
 router.get('/newmusic', async (ctx, next) => {
   const params = ctx.query;
-  await  crawl.initNewList(params);
+  await  Crawl.initNewList(params);
   ctx.body = {
-    data: crawl.musicList
+    data: Crawl.musicList
   }
 })
 
 router.get('/searchmusic', async (ctx, next) => {
   const params = ctx.query;
-  await  crawl.searchMusic(params);
+  await  Crawl.searchMusic(params);
   ctx.body = {
-    data: crawl.musicList
+    data: Crawl.musicList
+  }
+})
+
+router.get('/lrcmusic', async (ctx, next) => {
+  const params = ctx.query;
+  await  Crawl.lrcMusic(params);
+  ctx.body = {
+    data: Crawl.lrc
   }
 })
 
